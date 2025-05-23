@@ -90,7 +90,7 @@ app.get("/auth/google/callback", passport.authenticate('google', { session: fals
 
         res.cookie('jwt', token, {
             httpOnly: false,
-            secure: false, // ❗ set to true in production (requires HTTPS)
+            secure: true, // ❗ set to true in production (requires HTTPS)
             sameSite: 'Lax',
             maxAge: 3600000 // 1 hour
         });
