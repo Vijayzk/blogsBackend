@@ -100,8 +100,8 @@ app.get("/auth/google/callback", passport.authenticate('google', { session: fals
 )
 
 
-app.get('/login/success/:cookie', async (req, res) => {
-    const token = req.params.cookie;
+app.get('/login/success', async (req, res) => {
+    const token = req.cookies.jwt;
     if (!token) {
         return res.status(401).json({ message: 'No token, not authenticated' });
     }
