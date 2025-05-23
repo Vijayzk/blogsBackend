@@ -35,7 +35,7 @@ passport.use(
     new OAuth2Strategy({
         clientID: process.env.clientid,
         clientSecret: process.env.clientsecret,
-        callbackURL: "/auth/google/callback",
+        callbackURL: "https://blogsbackend-wmei.onrender.com/auth/google/callback",
         scope: ["profile", "email"]
     },
         async (accessToken, refreshToken, profile, done) => {
