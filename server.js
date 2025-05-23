@@ -89,9 +89,9 @@ app.get("/auth/google/callback", passport.authenticate('google', { session: fals
         const token = jwt.sign(user, `${process.env.secretkey}`, { expiresIn: '1h' });
 
         res.cookie('jwt', token, {
-            httpOnly: false,
+            httpOnly: true,
             secure: true, // ❗ set to true in production (requires HTTPS)
-            sameSite: 'Lax',
+            sameSite: 'None',
             maxAge: 3600000 // 1 hour
         });
 
