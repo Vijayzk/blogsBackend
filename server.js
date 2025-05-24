@@ -116,8 +116,8 @@ app.get('/login/success', async (req, res) => {
 app.get('/auth/logout', async (req, res) => {
     res.clearCookie('jwt', {
         httpOnly: true,
-        secure: false, // true in production
-        sameSite: 'Lax'
+        secure: true, // true in production
+        sameSite: 'None'
       });
     res.status(200).json({ message: 'Logged out' });
 });
